@@ -1,0 +1,41 @@
+#toggle-buscar-paginas {
+  color: #ffffff !important;
+  background-color: #000066 !important;
+  border-color: #000066 !important;
+}
+.formulario-busqueda {
+  position: fixed;
+  width: 100%;
+  background-color: #eeeeee !important;
+}
+
+#resultado-busqueda::-webkit-scrollbar {
+  width: 10px; /* Ancho de la barra de desplazamiento */
+}
+
+/* Estilo del thumb (la parte móvil de la barra de desplazamiento) */
+#resultado-busqueda::-webkit-scrollbar-thumb {
+  background-color: #000066; /* Color del thumb */
+  border-radius: 5px; /* Bordes redondeados del thumb */
+}
+
+/* Estilo para el icono */
+.formulario-busqueda i {
+  position: absolute;
+  top: 50%;
+  left: 10px; /* Ajusta según sea necesario */
+  transform: translateY(-50%);
+  color: #c6c6c6; /* Color del icono */
+  opacity: 1;
+}
+
+#buscar-paginas {
+  text-align: left;
+  font: normal normal bold 32px/44px Open Sans;
+  letter-spacing: 0.51px;
+  color: #c6c6c6;
+  opacity: 1;
+}
+#bscTitle:hover {
+  color: #5803b9 !important;
+}

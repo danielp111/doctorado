@@ -1,0 +1,16 @@
+jQuery(document).ready(function ($) {
+    // Función para mostrar/ocultar la lista de iconos y el fondo oscuro
+    $('#floating-button').click(function () {
+        $('#icon-list, #dark-overlay').toggle();
+        // Si la lista se está abriendo, oculta el círculo rojo
+        if ($('#icon-list').is(':visible')) {
+            $('#iconAPP').html('<i class="fa fa-times-circle fa-2x" style="color:#FFFFFF"></i>');
+            //$('#iconAPP').html(iconoCerrar);
+            $('#circleAPP').hide();
+        } else {
+            // Si la lista se está cerrando, muestra el círculo rojo
+            $('#circleAPP').show();
+            $('#iconAPP').html(iconoApp);
+        }
+    });
+});

@@ -1,0 +1,39 @@
+jQuery(document).ready(function ($) {
+    // Mostrar/ocultar el overlay y el campo de búsqueda
+    $('#search-ajax-unicauca-responsive-toggle').on('click', function () {
+        var $overlay = $('#search-ajax-unicauca-responsive-overlay');
+        var $button = $(this);
+
+        if ($button.attr('data-state') === 'closed') {
+            $button.attr('data-state', 'open');
+            $button.html('<i class="fas fa-times fa-2x" style="color: #FFFFFF"></i>'); // Ícono de cerrar
+            $("#contenedorSearch").show();
+            $overlay.addClass('active'); // Muestra el overlay
+        } else {
+            $button.attr('data-state', 'closed');
+            $button.html('<i class="fas fa-search fa-2x" style="color: #FFFFFF"></i>'); // Ícono de búsqueda
+            $("#contenedorSearch").toggle();
+            $overlay.removeClass('active'); // Oculta el overlay
+        }
+    });
+
+    // Búsqueda Ajax
+    $('#search-ajax-unicauca-responsive-input').on('input', function () {
+        var search_term = $(this).val();
+        if (search_term.length >= 3) {
+            $.ajax({
+                url: search_ajax_unicauca_responsive.ajax_url,
+                type: 'POST',
+                data: {
+                    action: 'search_ajax_unicauca_responsive_buscar',
+                    search_term: search_term
+                },
+                success: function (response) {
+                    $('#search-ajax-unicauca-responsive-resultados').html(response);
+                }
+            });
+        } else {
+            $('#search-ajax-unicauca-responsive-resultados').html('');
+        }
+    });
+});

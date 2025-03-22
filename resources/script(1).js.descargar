@@ -1,0 +1,73 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const items = document.querySelectorAll('.mosaico-item');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Quitar la clase "active" de todos los botones
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            const year = button.getAttribute('data-year');
+            items.forEach(item => {
+                if (year === 'all' || item.getAttribute('data-year') === year) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+
+function filterByYear() {
+    var selectedYear = document.getElementById('yearFilter').value;
+    var items = document.querySelectorAll('.mosaico-item');
+
+    items.forEach(function (item) {
+        if (selectedYear === 'all' || item.getAttribute('data-year') === selectedYear) {
+            item.style.display = 'block'; // Muestra el item
+        } else {
+            item.style.display = 'none'; // Oculta el item
+        }
+    });
+}
+
+// Función para abrir el modal
+function openModal(modalId, pdfUrl) {
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const iframe = document.querySelector(`#${modalId} iframe`);
+
+    if (isMobile) {
+        // Usar Google Docs Viewer en móviles
+        iframe.src = `https://docs.google.com/viewer?url=${encodeURIComponent(pdfUrl)}&embedded=true`;
+    } else {
+        // Cargar PDF directamente en escritorio
+        iframe.src = pdfUrl;
+    }
+
+    document.getElementById(modalId).style.display = "block";
+}
+
+// Función para cerrar el modal
+function closeModal(modalId) {
+    const iframe = document.querySelector(`#${modalId} iframe`);
+    iframe.src = ""; // Limpia la URL para optimizar memoria
+    document.getElementById(modalId).style.display = "none";
+}
+
+
+// Cerrar el modal si se hace clic fuera del contenido
+window.onclick = function (event) {
+    var modals = document.querySelectorAll('.modal');
+    modals.forEach(function (modal) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    });
+}
+
+
+
+
+

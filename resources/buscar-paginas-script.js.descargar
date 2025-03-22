@@ -1,0 +1,61 @@
+jQuery(document).ready(function ($) {
+    // Ocultar el formulario de búsqueda al cargar la página
+    $('#formulario-busqueda').hide();
+
+    var container = $('#contenedorBuscador');
+    // Guarda los widgets dentro del contenedor en una variable
+    var widgets = container.children();
+    // Mueve los widgets fuera del contenedor y los inserta después del contenedor
+    widgets.insertAfter(container);
+    // Oculta el contenedor
+    container.hide();
+
+    // Mostrar u ocultar el formulario al hacer clic en el botón
+    $('#toggle-buscar-paginas').on('click', function () {
+        $('#formulario-busqueda').toggle();
+        var buttonIcon = $(this).find('i');
+        buttonIcon.toggleClass('fa-search');
+        buttonIcon.toggleClass('fa-times');
+    });
+
+    $('#buscar-paginas').on('keyup', function () {
+        var searchQuery = $(this).val();
+        if (searchQuery === '') {
+            $('#resultado-busqueda').html(''); // Limpiar resultados si el campo está vacío.
+            $('#resultado-busqueda').css({
+                'height': '0px',
+                'overflow-y': 'scroll'
+            });
+            $('#iconoSearch').css({
+                'display': 'block',
+            });
+            return; // No realizar la búsqueda si el campo está vacío
+        } else {
+            $('#resultado-busqueda').css({
+                'height': '500px',
+                'overflow-y': 'scroll',
+                'background-color': '#e6e6e6'
+            });
+            $('#iconoSearch').css({
+                'display': 'none',
+            });
+        }
+        $.ajax({
+            url: buscarPaginasAjax.ajaxurl,
+            type: 'POST',
+            data: {
+                action: 'buscar_paginas',
+                search_query: searchQuery
+            },
+            success: function (response) {
+                $('#resultado-busqueda').html(response);
+            }
+        });
+    });
+
+    $(document).on('click', '.pagina a', function (e) {
+        e.preventDefault();
+        var pageUrl = $(this).attr('href');
+        window.location.href = pageUrl;
+    });
+});
