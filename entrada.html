@@ -53,17 +53,30 @@
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
 
 			<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><script src="./resources/wp-emoji-release.min.js.descargar" defer=""></script><script async="" src="./resources/modules.47bdc3ea03ae568fad7d.js.descargar" charset="utf-8"></script>
+			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
 
+			<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+			<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+		
 			<style>
-
-				html, body {
-					overflow: hidden;
+				.carousel-inner img {
+					max-width: 50%;
+					height: auto;
+					margin: 0 auto; /* Centrar la imagen */
 				}
 
-			</style>
+				.carousel-item {
+					transition: opacity 1.5s ease-in-out; /* Ajusta la duración del fade */
+				}
 
+				.parrafo-destacado {
+					font-size: 2.5rem;
+					font-weight: bold;
+				}
+			</style>
+			
 		</head>
-<body style=" overflow: hidden;" class="posgrados-noticias-template posgrados-noticias-template-elementor_canvas single single-posgrados-noticias postid-49127 wp-custom-logo hello-elementor elementor-default elementor-template-canvas elementor-kit-10 elementor-page elementor-page-49127 e--ua-blink e--ua-edge e--ua-webkit" data-elementor-device-mode="tablet">
+<body class="posgrados-noticias-template posgrados-noticias-template-elementor_canvas single single-posgrados-noticias postid-49127 wp-custom-logo hello-elementor elementor-default elementor-template-canvas elementor-kit-10 elementor-page elementor-page-49127 e--ua-blink e--ua-edge e--ua-webkit" data-elementor-device-mode="tablet">
 	        
         		<div data-elementor-type="wp-post" data-elementor-id="49127" class="elementor elementor-49127" data-elementor-post-type="posgrados-noticias">
 		
@@ -94,6 +107,47 @@
 				</div>
 					</div>
 				</div>
+
+				<div class="container mt-4">
+					<div id="miCarrusel" class="carousel slide carousel-fade" data-ride="carousel" data-interval="4000">
+			
+						<!-- Indicadores (puntos de navegación) -->
+						<ol class="carousel-indicators">
+							<li data-target="#miCarrusel" data-slide-to="0" class="active"></li>
+							<li data-target="#miCarrusel" data-slide-to="1"></li>
+							<li data-target="#miCarrusel" data-slide-to="2"></li>
+						</ol>
+			
+						<!-- Imágenes del carrusel -->
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<img src="./images/imagen 1.JPG" class="d-block w-100" alt="Imagen 1">
+							</div>
+							<div class="carousel-item">
+								<img src="./images/imagen 2.JPG" class="d-block w-100" alt="Imagen 2">
+							</div>
+							<div class="carousel-item">
+								<img src="./images/imagen 3.JPG" class="d-block w-100" alt="Imagen 3">
+							</div>
+							<div class="carousel-item">
+								<img src="./images/imagen 4.JPG" class="d-block w-100" alt="Imagen 4">
+							</div>
+						</div>
+			
+						<!-- Controles de navegación (flechas) -->
+						<a class="carousel-control-prev" href="#miCarrusel" role="button" data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Anterior</span>
+						</a>
+						<a class="carousel-control-next" href="#miCarrusel" role="button" data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Siguiente</span>
+						</a>
+			
+					</div>
+				</div>
+
+
 		<div class="elementor-element elementor-element-9db9583 e-flex e-con-boxed e-con e-parent e-lazyloaded" data-id="9db9583" data-element_type="container">
 					<div class="e-con-inner">
 		<div class="elementor-element elementor-element-06e37f1 e-con-full e-flex e-con e-child" data-id="06e37f1" data-element_type="container">
@@ -101,7 +155,7 @@
 		<div class="elementor-element elementor-element-7d870dc e-con-full e-flex e-con e-child" data-id="7d870dc" data-element_type="container">
 				<div class="elementor-element elementor-element-e080453 elementor-widget elementor-widget-text-editor" data-id="e080453" data-element_type="widget" data-widget_type="text-editor.default">
 				<div class="elementor-widget-container">
-									<p>Seis nuevos doctorandos fueron recibidos en una jornada que reafirma el compromiso institucional con la formación investigativa de alto nivel.</p>								</div>
+									<p class=" h6">Seis nuevos doctorandos fueron recibidos en una jornada que reafirma el compromiso institucional con la formación investigativa de alto nivel.</p>								</div>
 				</div>
 				</div>
 		<div class="elementor-element elementor-element-53e5339 e-con-full e-flex e-con e-child" data-id="53e5339" data-element_type="container">
